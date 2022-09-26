@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%!
-    private void printSum (int to, JspWriter out) {
+    private void printSum (int to, JspWriter out) throws Exception{
     	int sum = 0;
     	for (int i = 0; i <= to; i++) {
     		sum += i;
