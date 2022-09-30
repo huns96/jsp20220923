@@ -24,7 +24,7 @@ public class Car {
 	}
 	
 	// 쓸 수 있는 price 프로퍼티 결정
-	public void  setPrive(Integer price) {
+	public void  setPrice(Integer price) {
 		this.price = price;
 	}
 	
