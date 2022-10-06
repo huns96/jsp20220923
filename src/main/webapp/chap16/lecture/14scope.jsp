@@ -15,7 +15,18 @@
 </head>
 <body>
 
-<my:tag4></my:tag4>
+	<c:set var="pageAttr1" value="pageVal1" scope="page"></c:set>
+	<c:set var="reqAttr1" value="reqVal1" scope="request"></c:set>
+	<c:set var="sessAttr1" value="sessVal1" scope="session"></c:set>
+	<c:set var="appAttr1" value="appVal1" scope="application"></c:set>
+	
+	<p>${pageAttr1 }</p>
+	<p>${reqAttr1 }</p>
+	<p>${sessAttr1 }</p>
+	<p>${appAttr1 }</p>
+
+	<my:tag15></my:tag15>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
