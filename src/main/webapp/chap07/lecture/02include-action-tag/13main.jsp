@@ -11,7 +11,16 @@
 </head>
 <body>
 <%-- request에 attribute 추가해서 13sub.jsp에 null 출력되지 않도록 하기 --%>
-<%asdasd %>
+
+<% 
+
+Map<String, Book> map = Map.of("book1", new Book("java", 500), "book2", new Book("sql", 200));
+
+request.setAttribute("books", map); 
+
+%>
+
+
 <jsp:include page="13sub.jsp"></jsp:include>
 <hr>
 <jsp:include page="13sub-el.jsp"></jsp:include>

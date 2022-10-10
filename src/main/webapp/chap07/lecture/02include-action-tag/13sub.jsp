@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, jsp20220923.chap07.*" %>
+
+
 <%
-	List<Book> list = (List<Book>) request.getAttribute("books");
+	Map<String, Book> map = (Map<String, Book>) request.getAttribute("books");
 %>
 
-<p><%= list.get(0).getTitle() %> : <%= list.get(0).getPrice() %></p>
-<p><%= list.get(1).getTitle() %> : <%= list.get(1).getPrice() %></p>
+<%-- 아래 html에서 null이 출력되지 않도록 main.jsp를 완성 --%>
+<p><%= map.get("book1").getTitle() %> : <%= map.get("book1").getPrice() %></p>
+<p><%= map.get("book2").getTitle() %> : <%= map.get("book2").getPrice() %></p>

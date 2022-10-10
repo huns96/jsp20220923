@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import= "java.util.*, jsp20220923.chap07.*" %>
+<%@ page import="java.util.*, jsp20220923.chap07.*" %>
 
 <%
 	List<Book> list = (List<Book>) request.getAttribute("books");
