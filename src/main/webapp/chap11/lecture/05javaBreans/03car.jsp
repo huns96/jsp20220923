@@ -12,7 +12,7 @@
 	<%
 	Car car1 = new Car();
 	car1.setModel("avante");
-	car1.setPrive(5000);
+	car1.setPrice(5000);
 	
 	request.setAttribute("c", car1);
 	%>

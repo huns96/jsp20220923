@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Servlet06
  */
-/* @WebServlet("/Servlet06") */
+// @WebServlet("/Servlet06")
 public class Servlet06 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -26,7 +26,8 @@ public class Servlet06 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("여섯번째 서블릿 일함");
+		System.out.println("여섯번째 서블릿 일함!!!!!!");
+	
 	}
 
 	/**
