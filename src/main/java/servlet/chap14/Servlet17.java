@@ -15,31 +15,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import domain.chap14.Employee;
+
 /**
- * Servlet implementation class Servlet16
+ * Servlet implementation class Servlet17
  */
-@WebServlet("/Servlet16")
-public class Servlet16 extends HttpServlet {
+@WebServlet("/Servlet17")
+public class Servlet17 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Servlet17() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public Servlet16() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// 3. business logic
-		// -> 직원의 LastName을 내림차순 정렬해서 db에서 조회
-		String sql = "SELECT LastName FROM Employees ORDER BY 1 DESC";
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String sql = "SELECT FirstName, LastName FROM Employees";
 		ServletContext application = request.getServletContext();
 
 		String url = application.getAttribute("jdbc.url").toString();
@@ -50,29 +47,31 @@ public class Servlet16 extends HttpServlet {
 				Connection con = DriverManager.getConnection(url, user, pw);
 				Statement stmt = con.createStatement();
 				ResultSet rs = stmt.executeQuery(sql);) {
-
-			List<String> list = new ArrayList<>();
+			
+			List<Employee> list = new ArrayList<>();
+			
 			while (rs.next()) {
-				list.add(rs.getString(1));
+				Employee e = new Employee();
+				e.setFirstName(rs.getString(1));
+				e.setLastName(rs.getString(2));
+				
+				list.add(e);
 			}
-
-			// 4. add attribute
-			request.setAttribute("lastNameList", list);
+			
+			request.setAttribute("employeeList", list);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		// 5. forward/redirect
-		String path = "/WEB-INF/view/chap14/view04.jsp";
+		
+		// forward / redirect
+		String path = "/WEB-INF/view/chap14/view05.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

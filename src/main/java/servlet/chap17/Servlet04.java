@@ -1,11 +1,14 @@
 package servlet.chap17;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import jsp20220923.chap07.Book;
 
 /**
  * Servlet implementation class Servlet04
@@ -26,10 +29,15 @@ public class Servlet04 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("서블릿 04가 한 일");
-		request.setAttribute("result", "일한 결과");
-		request.getRequestDispatcher("/WEB-INF/view/chap17/view03.jsp").forward(request, response);
+		// database 관련 일을 열심히함
+		Book book = new Book("java", 500);
 		
+		// 일한 결과를 request에 추가
+		request.setAttribute("searchResult", book);
+		
+		// request를 jsp에게 포워드함
+		String path = "/WEB-INF/view/chap17/view03.jsp";
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**
